@@ -1,5 +1,6 @@
 <p align="center">
-<img width="800" height="500" alt="Monday 29 september 2025" src="https://github.com/user-attachments/assets/bb23d887-1faf-4597-85db-67892d685ea0" />
+<img width="600" height="600" alt="Job Application Tracker" src="https://github.com/user-attachments/assets/b06db436-4734-4624-8e61-462a04439589" />
+
 </p>
 
 
@@ -13,7 +14,7 @@ The **Job Application Tracker** is a productivity tool built to solve the mess o
 <hr></hr>
 
 ## 🔗 Live Link
-👉 https://mdhadiuzzaman0.github.io/Payoo_Mobile_Banking_App/
+👉 https://mdhadiuzzaman0.github.io/A-04_Job_Application_Tracker/
 <hr></hr>
 
 
@@ -23,24 +24,25 @@ The **Job Application Tracker** is a productivity tool built to solve the mess o
 - **CSS3**
 - **Tailwind CSS**
 - **DaisyUI**
+- **DOM Manipulation & Event Handling**
 - Responsive Web Design Principles
-- DOM Manipulation & Event Handling
 <hr></hr>
 
 ## ✨ Features 
 - **Real-time Statistics:** Automatically updates total, interview and rejection counts as you manage your list.
 - **Dynamic Filtering:** Toggle between "All", "Interview" and "Rejected" views without page reloads.
 - **Interactive Status Management:** Move jobs to different categories with a single click.
-- ***Smart Empty States:** A dedicated UI template appears when a filtered list has no entries, guiding the user back to action.
+- **Smart Empty States:** A dedicated UI template appears when a filtered list has no entries, guiding the user back to action.
 - **Data Management:** Integrated delete functionality to keep your tracker clean and relevant.
 <hr></hr>
 
 ## ⚙️ Core Implementation Concepts
 This project demonstrates several advanced JavaScript and Front-end development concepts:
-- **State Management:** Utilized JavaScript arrays to maintain a "Single Source of Truth" for job statuses across different views.
-- **Dynamic UI Rendering** Implemented reusable **rendering functions and template literals** to update the **DOM** based on user interaction.
-- **Efficient DOM Traversal:** Used **event.target and parent-node navigation** to handle complex interactions within job cards.
-- **Event Delegation:** Optimized performance by attaching a **single event listener** to the main container instead of individual buttons.
+- **API-Centric Data:** Structured job data as objects to ensure the app is fully ready for future REST **API integration**.
+- **State Management:** Used JavaScript arrays as a "Single Source of Truth" to keep the UI and data perfectly synchronized.
+- **Efficient DOM Traversal:** Used **event.target and parent-node navigation** to handle complex interactions within job cards..
+- **Event Delegation:** Optimized performance by **using a single event listener** on the main container to handle all user actions.
+- **Conditional Rendering:** Implemented reusable **rendering functions and template literals** to update the DOM based on user interaction.
 <hr></hr>
 
 ## 👤 Author
@@ -51,45 +53,9 @@ Textile Engineering Graduate | KUET | Focused on front-end architectures and bui
 
 
 ## 🎨 UI 
-<table>
 
 https://github.com/user-attachments/assets/474e37a5-ff0f-4296-97ee-90f3e96f45a4
 
 
-    <tr>
-        <td>
-        <img src="./ui/Login page.png" >
-        </td>
-        <td >
-        <img src="./assets/Logo-full.png" width="100%" style="background:white;padding:10px;">
-        </td>
-    </tr>
-    <tr>
-        <td>
-        <img src="./ui/Cashout.png" >
-        </td>
-        <td >
-        <img src="./ui/Add Money.png" >
-        </td>
-    </tr>
-    <tr>
-        <td>
-        <img src="./ui/Transactions.png" >
-        </td>
-        <td >
-        <img src="./ui/Pay Bill.png" >
-        </td>
-    </tr>
-    <tr>
-        <td>
-        <img src="./ui/send money.png" >
-        </td>
-        <td >
-        <img src="./ui/Home Page.png">
-        </td>
-    </tr>
-    
-</table>
 
-## 
 
