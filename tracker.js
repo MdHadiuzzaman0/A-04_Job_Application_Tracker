@@ -121,7 +121,17 @@ const mainContainer=document.querySelector('main');
                 jobName, jobNature, jobDetails, status, note
             }
             
-           
+            let plantExist = false;
+            for (i=0;i<interviewList.length;i++) {
+            if (interviewList[i].jobName == cardInfo.jobName) {
+            plantExist = true;
+            break;
+            }
+            }
+            
+            if (plantExist === false) {
+                interviewList.push(cardInfo);
+            }
             
              rejectedList= rejectedList.filter(item => item.jobName != cardInfo.jobName);
 
@@ -134,7 +144,7 @@ const mainContainer=document.querySelector('main');
 
 
             else if(event.target.classList.contains('rejectedBtn')){
-
+                
             const parentNode=event.target.parentNode;
             const jobName=parentNode.querySelector('.jobName').innerText;
             const jobNature=parentNode.querySelector('.jobNature').innerText;
