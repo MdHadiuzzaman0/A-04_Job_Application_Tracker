@@ -1,40 +1,61 @@
-1. 
+<p align="center">
+<img width="600" height="600" alt="Job Application Tracker" src="https://github.com/user-attachments/assets/b06db436-4734-4624-8e61-462a04439589" />
 
-getElementById() is used to detect 'id' in html file. It gives a single element, not array type data. It is the fatest detecting  method.
-
-getElementsByClassName is used to detect all 'class' elements presented in html file. It provides a HTML collection, which is an array like object and changed itself with changing in html file.
-
-querySelector is used to detect any css selector. It returns always first matching element.
-
-querySelectorAll is kind of similar to getElementsByClassName. But it is used for any css selector, not only class elements. It provide a Nodelist which is a static collection.
+</p>
 
 
-
-2. 
-
-a. Create element  ->      const child = document.createElement("div")
-
-b. Add content ->              child.innerText = "hello world" / child.innerHTML = `<p>hello world</p>`
-
-c. Add into DOM ->         parent.append(child)
-  
+<h1 align="center">
+ 📋 Job Application Tracker 
+</h1>
 
 
-3.
+## 📖 Overview
+The **Job Application Tracker** is a productivity tool built to solve the mess of tracking multiple job applications. It provides a real-time overview of one's job hunt progress, allowing you to move jobs between categories (Interview/Rejected) and visualize your success rate through dynamic counters.
+<hr></hr>
 
-Event bubbling is a process where event is operated from the target element up to its parents. It has three stages: Capture stage, Target stage, Bubbling stage.
-In this process, the event starts at the document root and travels to the target element. Then event reaches the target point and bubbles up to its parent. Suppose a button is in a div. When anyone clicks on the button, the click event first triggers on the button, then bubbles up to the div, then body, then the document.
-
-
-
-4.
-
-Instead of adding an event listener to each child element, we can use a single listener on the parent to easily catch the events. This is done using 'Event Delegation' procedure. It saves memory because  less code will be written and it also allows us to handle many dynamic elements easily and efficiently.
+## 🔗 Live Link
+👉 https://mdhadiuzzaman0.github.io/A-04_Job_Application_Tracker/
+<hr></hr>
 
 
+## 🛠️ Technologies Used
+- **Vanilla JavaScript(ES6+)**
+- **HTML5**
+- **CSS3**
+- **Tailwind CSS**
+- **DaisyUI**
+- **DOM Manipulation & Event Handling**
+- Responsive Web Design Principles
+<hr></hr>
 
-5.
+## ✨ Features 
+- **Real-time Statistics:** Automatically updates total, interview and rejection counts as you manage your list.
+- **Dynamic Filtering:** Toggle between "All", "Interview" and "Rejected" views without page reloads.
+- **Interactive Status Management:** Move jobs to different categories with a single click.
+- **Smart Empty States:** A dedicated UI template appears when a filtered list has no entries, guiding the user back to action.
+- **Data Management:** Integrated delete functionality to keep your tracker clean and relevant.
+<hr></hr>
 
-stopPropagation() is used to stop the event from bubbling  further up the DOM.
+## ⚙️ Core Implementation Concepts
+This project demonstrates several advanced JavaScript and Front-end development concepts:
+- **API-Centric Data:** Structured job data as objects to ensure the app is fully ready for future REST **API integration**.
+- **State Management:** Used JavaScript arrays as a "Single Source of Truth" to keep the UI and data perfectly synchronized.
+- **Efficient DOM Traversal:** Used **event.target and parent-node navigation** to handle complex interactions within job cards..
+- **Event Delegation:** Optimized performance by **using a single event listener** on the main container to handle all user actions.
+- **Conditional Rendering:** Implemented reusable **rendering functions and template literals** to update the DOM based on user interaction.
+<hr></hr>
 
-preventDefault() is used to stop the default action of the element. Suppose I click a button, the browser know I clicked, but as we use preventDefault(), we cannot travel another page or another section.
+## 👤 Author
+**Md. Hadiuzzaman**
+
+Textile Engineering Graduate | KUET | Focused on front-end architectures and building smart, responsive user applications.
+<hr></hr>
+
+
+## 🎨 UI 
+
+https://github.com/user-attachments/assets/474e37a5-ff0f-4296-97ee-90f3e96f45a4
+
+
+
+
