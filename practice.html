@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+
+        }
+    </style>
+
+</head>
+<body>
+    <div id="btn3" class="3btn space-x-2 m-10 bg-amber-300">
+
+                <button onclick="showOnly('allshowBtn')" id="allshowBtn" class="text-[12px] border bg-black text-white p-2.5 w-20 rounded-xl">All</button>
+
+                <button onclick="showOnly('interviewshowBtn')" id="interviewshowBtn" class="text-[#64748B] text-[12px] bg-white border rounded-xl p-2.5 w-20 ">Interview</button>
+
+                <button onclick="showOnly('rejectedshowBtn')" id="rejectedshowBtn" class="text-[#64748B] text-[12px] border bg-white rounded-xl p-2.5 w-20">Rejected</button>
+
+            </div>
+
+<script>
+    function showOnly(id){
+        const selected = document.getElementById(id)
+        const active = selected.classList.contains('bg-black')
+        console.log(active);
+        
+    document.querySelectorAll('#btn3 button').forEach(button => {
+        button.classList.remove("bg-black", 'text-white');
+        button.classList.add("bg-white", "text-[#64748B]")
+    })
+
+    if(!active){
+        selected.classList.add("bg-black", "text-white")
+        selected.classList.remove("bg-white", "text-[#64748B]");
+    }
+    }
+</script>
+</body>
+</html>

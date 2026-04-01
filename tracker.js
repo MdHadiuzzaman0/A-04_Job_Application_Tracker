@@ -8,17 +8,17 @@ const rejectedshowBtn=document.getElementById('rejectedshowBtn')
 
 const filterSection=document.getElementById('filteredSection');
 
-const card=document.getElementById('allcards');
+const allcards=document.getElementById('allcards');
 const jobCounter=document.getElementById('updateJobCounter')
 
 let interviewList=[];
 let rejectedList=[];
-let currentstatus='all';
+let currentstatus='allshowBtn';
 
 
 // jobCounter 
 function updateJobCounter() {
-    const totalJobs = card.children.length;
+    const totalJobs = allcards.children.length;
 
     if (currentstatus === 'allshowBtn') {
         jobCounter.innerText = `${totalJobs} jobs`;
@@ -46,37 +46,42 @@ function showOnly(id){
             selected.style.color="white";
 
             if(id === 'interviewshowBtn'){
-                card.classList.add('hidden');
+                allcards.classList.add('hidden');
                 filterSection.classList.remove('hidden');
                 renderinterview()
             }
-            else if(id === 'allshowBtn'){
-                card.classList.remove('hidden');
-                filterSection.classList.add('hidden');
-            }
             else if(id === 'rejectedshowBtn'){
-                card.classList.add('hidden');
+                allcards.classList.add('hidden');
                 filterSection.classList.remove('hidden');
                 renderrejected();
+            }
+            else if(id === 'allshowBtn'){
+                allcards.classList.remove('hidden');
+                filterSection.classList.add('hidden');
+                 if(allcards.children.length === 0){
+                filterSection.classList.remove('hidden')
+                filterSection.innerHTML = emptyTemplate;
+                return;
+                }
             }
            updateJobCounter();
         }
 
 
-// card no determine
+// allcards no determine
 
         function calculateCount(){
-             total.innerText =card.children.length;
+             total.innerText =allcards.children.length;
              interviewCount.innerText=interviewList.length;
              rejectedCount.innerText=rejectedList.length;
              updateJobCounter();
         }
 
         calculateCount();
-        //  const card=document.querySelector("#card");
-        //  console.log(card.children);
-       // const CARD=document.querySelectorAll("#card > div").length;
-       // console.log(CARD)
+        //  const allcards=document.querySelector("#allcards");
+        //  console.log(allcards.children);
+       // const allcards=document.querySelectorAll("#allcards > div").length;
+       // console.log(allcards)
 
 
 // not applied text change 
@@ -88,13 +93,13 @@ const cards=document.querySelectorAll('#allcards > div')
 
             interview.addEventListener('click', function(){
             status.innerText = "INTERVIEW";
-            status.classList.remove('bg-[#EEF4FF]', 'bg-[#EF4444]');
-            status.classList.add('bg-[#10B981]', 'text-white', 'rounded-2xl', 'text-center')});
+            status.classList.remove('bg-blue-100', 'bg-red-400');
+            status.classList.add('bg-green-400', 'text-white', 'rounded-2xl', 'text-center')});
 
             rejected.addEventListener('click', function(){
             status.innerText = "REJECTED";
-            status.classList.remove('bg-[#EEF4FF]', 'bg-[#10B981]');
-            status.classList.add('bg-[#EF4444]', 'text-white', 'rounded-2xl', 'text-center');
+            status.classList.remove('bg-blue-100', 'bg-green-400');
+            status.classList.add('bg-red-400', 'text-white', 'rounded-2xl', 'text-center');
         })
     }
 
@@ -113,16 +118,9 @@ const mainContainer=document.querySelector('main');
             const note=parentNode.querySelector('.note').innerText;
             
             const cardInfo={
-                jobName, jobNature, jobDetails, status:'Interview', note
+                jobName, jobNature, jobDetails, status, note
             }
             
-            //let plantExist = interviewList.find(
-            //item => item.plantName === cardInfo.plantName
-            // );
-            
-            // if (!plantExist) {
-            //     interviewList.push(cardInfo);
-            // }
             let plantExist = false;
             for (i=0;i<interviewList.length;i++) {
             if (interviewList[i].jobName == cardInfo.jobName) {
@@ -134,12 +132,13 @@ const mainContainer=document.querySelector('main');
             if (plantExist === false) {
                 interviewList.push(cardInfo);
             }
-
+            
              rejectedList= rejectedList.filter(item => item.jobName != cardInfo.jobName);
 
              if(currentstatus === 'rejectedshowBtn'){
                 renderrejected();
             }
+            
             calculateCount();
             }
 
@@ -154,16 +153,9 @@ const mainContainer=document.querySelector('main');
             const note=parentNode.querySelector('.note').innerText;
             
             const cardInfo={
-                jobName, jobNature, jobDetails, status:'Rejected', note
+                jobName, jobNature, jobDetails, status, note
             }
             
-            //let plantExist = interviewList.find(
-            //item => item.plantName === cardInfo.plantName
-            // );
-            
-            // if (!plantExist) {
-            //     interviewList.push(cardInfo);
-            // }
             let plantExist = false;
             for (i=0;i<rejectedList.length;i++) {
             if (rejectedList[i].jobName == cardInfo.jobName) {
@@ -186,13 +178,13 @@ const mainContainer=document.querySelector('main');
             }
            
             else if(event.target.classList.contains('fa-trash-can')){
-            const cardToDelete = event.target.closest('.bg-white');
+            const cardToDelete = event.target.parentNode.parentNode.parentNode;
             const jobName = cardToDelete.querySelector('.jobName').innerText;
             interviewList = interviewList.filter(item => item.jobName !== jobName);   
             rejectedList = rejectedList.filter(item => item.jobName !== jobName);
             cardToDelete.remove();
             calculateCount();
-
+            showOnly(currentstatus)
             }
             
             })
@@ -205,7 +197,7 @@ const mainContainer=document.querySelector('main');
                 return;
                 }
                 for(const info of interviewList){
-                    console.log(info)
+                    // console.log(info)
                     const div=document.createElement('div');
                     div.className= "bg-white p-6 space-y-4 rounded-xl mb-4 border";
                     div.innerHTML=`
@@ -221,7 +213,7 @@ const mainContainer=document.querySelector('main');
                     </div>
 
                     <p class="jobDetails text-[#64748B] text-[14px]">${info.jobDetails}</p>
-                    <p class="status text-[#10B981] text-[14px] font-semibold p-2 mr-2 rounded-xl border-2 border-[#10B981] w-[80px]">${info.status}</p>
+                    <p class="status text-center  p-2 text-white rounded-xl bg-[#10B981] w-[90px]">Interview</p>
                     <p class="note text-[#323B49] text-[14px]">${info.note}</p>
 
                     <button
@@ -260,7 +252,7 @@ const mainContainer=document.querySelector('main');
                     </div>
 
                     <p class="jobDetails text-[#64748B] text-[14px]">${info.jobDetails}</p>
-                    <p class="status text-[#EF4444] text-[14px] font-semibold p-2 rounded-xl border-2 border-[#EF4444] w-[80px]">${info.status}</p>
+                    <p class="status text-center p-2 text-white rounded-xl bg-red-500 w-[90px]">Rejected</p>
                     <p class="note text-[#323B49] text-[14px]">${info.note}</p>
 
                     <button
