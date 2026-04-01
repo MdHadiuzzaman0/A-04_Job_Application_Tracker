@@ -54,7 +54,11 @@ Textile Engineering Graduate | KUET | Focused on front-end architectures and bui
 
 ## 🎨 UI 
 
-https://github.com/user-attachments/assets/474e37a5-ff0f-4296-97ee-90f3e96f45a4
+
+
+https://github.com/user-attachments/assets/58983f6b-1f68-41af-ba95-4d2b4d3698be
+
+
 
 
 
